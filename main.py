@@ -43,7 +43,7 @@ class Budencrawler:
                 self.Punkte_l.pack_forget()
                 self.Punkte_l = tk.Label(root, text=self.Punkte)
                 self.Punkte_l.pack()
-            time.sleep(0.70)
+            time.sleep(1)
             
 
     def Programm_Start(self):
