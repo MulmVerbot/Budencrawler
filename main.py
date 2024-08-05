@@ -25,7 +25,7 @@ class Budencrawler:
         root.title("Budencrawler Alpha")
         root.bind("<F11>", self.toggle_fullscreen)
         root.bind("<Escape>", self.end_fullscreen)
-        root.bind("<Enter>", self.tun)
+        root.bind('<Return>', self.tun)
         self.Punkte_erhöhen_thread.start()
         self.GUI_Spawn_Menu()
 
@@ -33,13 +33,13 @@ class Budencrawler:
         while self.Programm_läuft == True:
             if self.hat_was_gekillt == True:
                 self.Punkte += 100
-                self.hat_was_gekillt == False
+                self.hat_was_gekillt = False
                 self.Punkte_l.pack_forget()
                 self.Punkte_l = tk.Label(root, text=self.Punkte)
                 self.Punkte_l.pack()
             if self.anderes_event_fuer_Punkte == True:
                 self.Punkte += 10
-                self.anderes_event_fuer_Punkte == False
+                self.anderes_event_fuer_Punkte = False
                 self.Punkte_l.pack_forget()
                 self.Punkte_l = tk.Label(root, text=self.Punkte)
                 self.Punkte_l.pack()
@@ -58,8 +58,6 @@ class Budencrawler:
 
         self.tun_e = tk.Entry(root)
         self.tun_e.place(x=10,y=100)
-        self.tun_n = tk.Button(root, text="machen", command=self.tun)
-        self.tun_n.place(x=40,y=130)
 
     def tun(self, event):
         was_tun = self.tun_e.get()
