@@ -19,7 +19,6 @@ class Budencrawler:
         self.hat_was_gekillt = False
         self.anderes_event_fuer_Punkte = False
         self.Inventar_offen = False
-
         ###
 
         root.title("Budencrawler Alpha")
@@ -28,6 +27,30 @@ class Budencrawler:
         root.bind('<Return>', self.tun)
         self.Punkte_erhöhen_thread.start()
         self.GUI_Spawn_Menu()
+        self.angreifen()
+
+    def angreifen(self):
+        print("angreifen(def)")
+        Gegner_ges_s = None
+        gegner = "test"
+        Stärke = 150
+        Ausdauer = 100
+        Rüstung = 10
+        ges_s = Ausdauer + Rüstung * Stärke
+        if gegner == "test":
+            print("Der Gegner ist  test")
+            Gegner_Stärke = 15
+            Gegner_Ausdauer = 100
+            Gegner_Rüstung = 10
+            Gegner_ges_s = Gegner_Ausdauer + Gegner_Rüstung * Gegner_Stärke
+
+        Kampfergebnis = ges_s - Gegner_ges_s
+        if Kampfergebnis >= 0:
+            print(f"Kampf gewonnen. Kampfergebnis: {Kampfergebnis}")
+        elif Kampfergebnis <= 0:
+            print(f"Kampf verloren. Kampfergebnis: {Kampfergebnis}")
+
+
 
     def Punkte_erhöhen(self):
         while self.Programm_läuft == True:
